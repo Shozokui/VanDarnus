@@ -27,7 +27,7 @@ ECHO Creating new database
 
 ECHO Loading tables into the database
 cd %PATH_SQL%
-FOR %%X IN (*.sql) DO ECHO Importing %%X & %PATH_MYSQL% %DBNAME% -h %DBADDRESS% -u %USER% < %%X
+FOR %%X IN (*.sql) DO ECHO Importing %%X & %PATH_MYSQL% %DBNAME% -h %DBADDRESS% -u %USER% %PASSWORD% < %%X
 ECHO Finished!
 
 ENDLOCAL

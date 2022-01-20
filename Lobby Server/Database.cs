@@ -68,23 +68,49 @@ namespace Meteor.Lobby
             using (MySqlConnection conn = new MySqlConnection(String.Format("Server={0}; Port={1}; Database={2}; UID={3}; Password={4}", ConfigConstants.DATABASE_HOST, ConfigConstants.DATABASE_PORT, ConfigConstants.DATABASE_NAME, ConfigConstants.DATABASE_USERNAME, ConfigConstants.DATABASE_PASSWORD)))
             {
                 try
-                {                    
+                {
                     conn.Open();
-
-                    //Check if exists                    
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM characters WHERE name=@name AND serverId=@serverId AND state != 2 AND state != 1", conn);
+                    pid = 0;
+                    cid = 0;
+                    //Check if there exists a character not reserved by the user with the same name and in the same server                  
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM characters WHERE (name=@name AND serverId=@serverId AND (userId!=@userId OR state!=0))", conn);
                     cmd.Parameters.AddWithValue("@serverId", serverId);
                     cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@userId", userId);
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         if (Reader.HasRows)
                         {
-                            alreadyExists = true;                            
+                            Program.Log.Debug("[SQL] Found character with same name. Exiting...");
+                            return true; //Early exit as we don't need to bother with anything else in this.
                         }
                     }
 
-                    //Reserve
-                    if (!alreadyExists)
+                    //Now check for a reserved character
+                    MySqlCommand cmd3 = new MySqlCommand("SELECT * FROM characters WHERE userId=@userId AND state=0", conn);
+                    cmd3.Parameters.AddWithValue("@userId", userId);
+
+                    using (MySqlDataReader Reader = cmd3.ExecuteReader())
+                    {
+                        if (Reader.HasRows) //We can reasonably assume that there's only one reserved character per used id
+                        {
+                            Reader.Read();
+                            cid = Reader.GetUInt16(0);
+                            pid = 0xBABE;
+                        }
+                    }
+
+                    if (cid != 0) //Update our reservation
+                    {
+                        MySqlCommand cmd2 = new MySqlCommand();
+                        cmd2.Connection = conn;
+                        cmd2.CommandText = "UPDATE characters SET serverId = @serverId, name = @name WHERE id = @cid";
+                        cmd2.Prepare();
+                        cmd2.Parameters.AddWithValue("@serverId", serverId);
+                        cmd2.Parameters.AddWithValue("@name", name);
+                        cmd2.Parameters.AddWithValue("@cid", cid);
+                        cmd2.ExecuteNonQuery();
+                    } else //Reserve
                     {
                         MySqlCommand cmd2 = new MySqlCommand();
                         cmd2.Connection = conn;
@@ -98,31 +124,23 @@ namespace Meteor.Lobby
                         cid = (ushort)cmd2.LastInsertedId;
                         pid = 0xBABE;
                     }
-                    else
-                    {
-                        pid = 0;
-                        cid = 0;
-                    }
                 }
+
                 catch (MySqlException e)
                 {
                     Program.Log.Error(e.ToString());
-                   
                     Program.Log.Error(e.ToString());
-                   
-                    pid = 0;
                     cid = 0;
+                    pid = 0;
                 }
                 finally
                 {
                     conn.Dispose();
                 }
-
                 Program.Log.Debug("[SQL] CID={0} Created on 'characters' table.", cid);
             }
-
             return alreadyExists;
-        }        
+        }
 
         public static void MakeCharacter(uint accountId, uint cid, CharaInfo charaInfo)
         {

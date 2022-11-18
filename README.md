@@ -7,7 +7,7 @@ If you wish to discuss and help please join the Discord server.
 
 **Discord Server Invite**
 
-https://discord.gg/PsB8jyQvhq
+https://discord.gg/fBmGkSZbaD
 
 Pull Requests
 ========

@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+<<<<<<< HEAD:Meteor.sln
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
+=======
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+>>>>>>> 19ab3946 (Adjusted Login Styling):VanDarnus.sln
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map Server", "Map Server\Map Server.csproj", "{E8FA2784-D4B9-4711-8CC6-712A4B1CD54F}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -63,6 +68,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B74FA8A2-A5F2-4038-8545-79E1EF7F69CD} = {529C73E0-40CE-4F89-90F6-BC7AFEEC431F}
+		{3CA148F0-F23A-4BD5-8E25-D026F7CC88A3} = {529C73E0-40CE-4F89-90F6-BC7AFEEC431F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F350E848-7622-48E1-87DC-4C2B1596122B}

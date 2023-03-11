@@ -1282,6 +1282,7 @@ namespace Meteor.Map
             }
 
         }
+        
         public static void EquipAbility(Player player, byte classId, ushort hotbarSlot, uint commandId, uint recastTime)
         {
             commandId &= 0xFFFF;

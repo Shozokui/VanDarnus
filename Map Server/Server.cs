@@ -36,7 +36,7 @@ namespace Meteor.Map
         public const int BUFFER_SIZE = 0xFFFF; //Max basepacket size is 0xFFFF
         public const int BACKLOG = 100;
 
-        public const string STATIC_ACTORS_PATH = "./staticactors.bin";
+        public const string STATIC_ACTORS_PATH = "./config/staticactors.bin";
 
         private static Server mSelf;
 

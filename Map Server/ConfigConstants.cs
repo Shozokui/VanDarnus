@@ -29,6 +29,8 @@ namespace Meteor.Map
 {
     class ConfigConstants
     {
+        static string ConfigPath = "./config/map_config.ini";
+
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;
         public static bool OPTIONS_TIMESTAMP = false;
@@ -44,13 +46,13 @@ namespace Meteor.Map
         {
             Program.Log.Info("Loading map_config.ini file... ");
 
-            if (!File.Exists("./map_config.ini"))
+            if (!File.Exists(ConfigPath))
             {
                 Program.Log.Error("FILE NOT FOUND");
                 Program.Log.Error("Loading defaults... ");
             }
 
-            INIFile configIni = new INIFile("./map_config.ini");
+            INIFile configIni = new INIFile(ConfigPath);
 
             ConfigConstants.OPTIONS_BINDIP =        configIni.GetValue("General", "server_ip", "127.0.0.1");
             ConfigConstants.OPTIONS_PORT =          configIni.GetValue("General", "server_port", "1989");

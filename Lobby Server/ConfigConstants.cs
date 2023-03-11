@@ -30,6 +30,8 @@ namespace Meteor.Lobby
 {
     class ConfigConstants
     {
+        static string ConfigPath = "./config/lobby_config.ini";
+
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;
         public static bool   OPTIONS_TIMESTAMP = false;
@@ -44,13 +46,13 @@ namespace Meteor.Lobby
         {
             Program.Log.Info("Loading lobby_config.ini file");
 
-            if (!File.Exists("./lobby_config.ini"))
+            if (!File.Exists(ConfigPath))
             {
                 Program.Log.Error("FILE NOT FOUND!");
                 Program.Log.Error("Loading defaults...");
             }
 
-            INIFile configIni = new INIFile("./lobby_config.ini");
+            INIFile configIni = new INIFile(ConfigPath);
 
             ConfigConstants.OPTIONS_BINDIP =        configIni.GetValue("General", "server_ip", "127.0.0.1");
             ConfigConstants.OPTIONS_PORT =          configIni.GetValue("General", "server_port", "54994");

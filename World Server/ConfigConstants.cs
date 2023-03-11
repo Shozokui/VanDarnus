@@ -30,6 +30,8 @@ namespace Meteor.World
 {
     class ConfigConstants
     {
+        static string ConfigPath = "./config/world_config.ini";
+
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;
         public static bool   OPTIONS_TIMESTAMP = false;
@@ -47,13 +49,13 @@ namespace Meteor.World
         {
             Program.Log.Info("Loading world_config.ini");
 
-            if (!File.Exists("./world_config.ini"))
+            if (!File.Exists(ConfigPath))
             {
                 Program.Log.Error("FILE NOT FOUND!");
                 Program.Log.Error("Loading defaults...");
             }
 
-            INIFile configIni = new INIFile("./world_config.ini");
+            INIFile configIni = new INIFile(ConfigPath);
 
             ConfigConstants.OPTIONS_BINDIP =        configIni.GetValue("General", "server_ip", "127.0.0.1");
             ConfigConstants.OPTIONS_PORT =          configIni.GetValue("General", "server_port", "54992");

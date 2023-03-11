@@ -426,10 +426,10 @@
       <Name>Common Class Lib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Scripts Include="$(SolutionDir)Data\scripts\**\*.*" />
-    <Configs Include="$(SolutionDir)Data\*.ini" />
-    <StaticActors Include="$(SolutionDir)Data\*.bin" />
+  <ItemGroup Label="Static Files">
+    <Scripts Include="$(SolutionDir)Data\scripts\**\*.*" Visible="False" />
+    <Configs Include="$(SolutionDir)Data\*.ini" Visible="False" />
+    <StaticActors Include="$(SolutionDir)Data\*.bin"  Visible="False"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

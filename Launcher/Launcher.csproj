@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <!-- .Net 7.0 introduces a new UseCurrentRuntimeIdentifier property-->
+    <UseCurrentRuntimeIdentifier Condition="'$(UseCurrentRuntimeIdentifier)' == ''">true</UseCurrentRuntimeIdentifier>
+    <SelfContained Condition="'$(SelfContained)' == ''">false</SelfContained>
+    <ApplicationIcon>FFXIV.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="FFXIV.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.OffScreen.NETCore" Version="110.0.300" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="110.0.300" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common Class Lib\Common Class Lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

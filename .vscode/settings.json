@@ -6,7 +6,7 @@
     "**/obj": true,
     "**/Properties": true,
     "**/packages.config": true,
-    "**/*.csproj": true,
+    // "**/*.csproj": true,
     "packages/": true,
     "LICENSE*": true,
     "*.code-workspace": true,

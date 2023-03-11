@@ -1,0 +1,14 @@
+﻿<Window x:Class="Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:cef="clr-namespace:CefSharp;assembly=CefSharp.Core"
+        xmlns:local="clr-namespace:Launcher"
+        mc:Ignorable="d"
+        Title="Final Fantasy XIV 1.23b Launcher" Height="550" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <wpf:ChromiumWebBrowser x:Name="Browser" Address="http://localhost/login_su/login.php" />
+    </Grid>
+</Window>

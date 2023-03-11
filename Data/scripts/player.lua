@@ -18,6 +18,27 @@ function onBeginLogin(player)
 		end		
 		
 	end
+	
+	-- Set Dream Packet if waking up in the inn
+	if (player.CurrentArea.ZoneId == 244) then
+		local dreamCode = 35;
+	
+		-- In Plain Sight wakeup dream
+		if (player:HasItem(10011243) and not player:HasQuest(110829)) then
+			dreamCode = 1;
+		-- The Usual Suspect wakeup dream
+		elseif (player:HasItem(10011252) and not player:HasQuest(110849)) then
+			dreamCode = 2;
+		-- Nael Van Darnus nightmare
+		-- elseif (player:???) then
+		-- 	dreamCode = 20;
+		-- Random item
+		-- elseif (player:???) then
+		-- 	dreamCode = math.random(21, 33);
+		end
+		
+		player:SetLoginDreamCode(dreamCode);
+	end
 
 	--For Opening. Set Director and reset position incase d/c
 	if (player:HasQuest(110001) == true and player:GetZoneID() == 193) then

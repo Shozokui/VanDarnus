@@ -30,7 +30,7 @@ namespace Meteor.Lobby
 {
     class ConfigConstants
     {
-        static string ConfigPath = "./config/lobby_config.ini";
+        static string ConfigPath = "../config/lobby_config.ini";
 
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;

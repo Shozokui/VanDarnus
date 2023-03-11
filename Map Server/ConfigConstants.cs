@@ -29,7 +29,7 @@ namespace Meteor.Map
 {
     class ConfigConstants
     {
-        static string ConfigPath = "./config/map_config.ini";
+        static string ConfigPath = "../config/map_config.ini";
 
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;
@@ -57,6 +57,7 @@ namespace Meteor.Map
             ConfigConstants.OPTIONS_BINDIP =        configIni.GetValue("General", "server_ip", "127.0.0.1");
             ConfigConstants.OPTIONS_PORT =          configIni.GetValue("General", "server_port", "1989");
             ConfigConstants.OPTIONS_TIMESTAMP =     configIni.GetValue("General", "showtimestamp", "true").ToLower().Equals("true");
+            ConfigConstants.OPTIONS_SCRIPTPATH =    configIni.GetValue("General", "script_path", "../../Data/scripts");
 
             ConfigConstants.DATABASE_WORLDID =      UInt32.Parse(configIni.GetValue("Database", "worldid", "0"));
             ConfigConstants.DATABASE_HOST =         configIni.GetValue("Database", "host", "");

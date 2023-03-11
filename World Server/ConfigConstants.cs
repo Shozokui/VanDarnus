@@ -30,7 +30,7 @@ namespace Meteor.World
 {
     class ConfigConstants
     {
-        static string ConfigPath = "./config/world_config.ini";
+        static string ConfigPath = "../config/world_config.ini";
 
         public static String OPTIONS_BINDIP;
         public static String OPTIONS_PORT;

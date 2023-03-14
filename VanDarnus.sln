@@ -1,12 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD:Meteor.sln
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
-=======
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
->>>>>>> 19ab3946 (Adjusted Login Styling):VanDarnus.sln
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map Server", "Map Server\Map Server.csproj", "{E8FA2784-D4B9-4711-8CC6-712A4B1CD54F}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -24,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "World Server", "World Serve
 	ProjectSection(ProjectDependencies) = postProject
 		{3A3D6626-C820-4C18-8C81-64811424F20E} = {3A3D6626-C820-4C18-8C81-64811424F20E}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{DBA12F7C-A070-4B7D-859B-BC526C88E930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,22 +60,6 @@ Global
 		{3067889D-8A50-40D6-9CD5-23AA8EA96F26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3067889D-8A50-40D6-9CD5-23AA8EA96F26}.Release|x64.ActiveCfg = Release|x64
 		{3067889D-8A50-40D6-9CD5-23AA8EA96F26}.Release|x64.Build.0 = Release|x64
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Debug|x64.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Dev|Any CPU.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Dev|x64.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Dev|x64.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Devp4|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Devp4|Any CPU.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Devp4|x64.ActiveCfg = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Devp4|x64.Build.0 = Debug|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Release|x64.ActiveCfg = Release|Any CPU
-		{DBA12F7C-A070-4B7D-859B-BC526C88E930}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

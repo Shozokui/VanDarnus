@@ -2,12 +2,26 @@
 using System.Windows;
 using CefSharp;
 using CefSharp.Handler;
+using Launcher.Util;
 
 namespace Launcher
 {
 
     public class XivRequestHandler : RequestHandler
     {
+        protected override bool OnBeforeBrowse(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool userGesture, bool isRedirect)
+        {
+            var uri = new Uri(request.Url);
+            if (uri.Scheme == "ffxiv") // Handle FFXIV Login Success
+            {
+                var sessionID = uri.Query.Split("=")[1];
+                var launcher = new Launch(sessionID);
+                launcher.GameStart();
+            }
+
+            return base.OnBeforeBrowse(chromiumWebBrowser, browser, frame, request, userGesture, isRedirect);
+        }
+
         protected override void OnDocumentAvailableInMainFrame(IWebBrowser chromiumWebBrowser, IBrowser browser)
         {
             base.OnDocumentAvailableInMainFrame(chromiumWebBrowser, browser);
@@ -30,7 +44,7 @@ namespace Launcher
         {
             InitializeComponent();
 
-            
+            Browser.RequestHandler = new XivRequestHandler();
 
         }
 

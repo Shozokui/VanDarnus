@@ -31,16 +31,19 @@ namespace Meteor.Map
     {
         static string ConfigPath = "../config/map_config.ini";
 
-        public static String OPTIONS_BINDIP;
-        public static String OPTIONS_PORT;
+        public static string OPTIONS_BINDIP;
+        public static string OPTIONS_PORT;
         public static bool OPTIONS_TIMESTAMP = false;
+        public static string OPTIONS_SCRIPTPATH = "";
 
         public static uint DATABASE_WORLDID;
-        public static String DATABASE_HOST;
-        public static String DATABASE_PORT;
-        public static String DATABASE_NAME;
-        public static String DATABASE_USERNAME;
-        public static String DATABASE_PASSWORD;
+        public static string DATABASE_HOST;
+        public static string DATABASE_PORT;
+        public static string DATABASE_NAME;
+        public static string DATABASE_USERNAME;
+        public static string DATABASE_PASSWORD;
+
+        
 
         public static bool Load()
         {
